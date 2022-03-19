@@ -1,4 +1,5 @@
 #
+# 2020 06 12  + init /A
 # 2022 03 18  + published on https://github.com/InstallAndUse/RPi /A
 #
 
@@ -31,12 +32,60 @@
 # check you have python installed (probabaly on RPi it is)
  which python
      /usr/bin/python
+
+# eventually, run first read
  root@(host):/home/pi/meter# ./read_ds18x20.py
      /sys/bus/w1/devices/10-000800e489b3;27000
      /sys/bus/w1/devices/10-00080280a759;29500#
 
 
- change DB credentials in shell script (user) and (pass)
+# prepare PostgreSQL database for telemetry gathering (satellite)
+#
+
+# install postgres
+sudo su
+apt install postgresql
+
+# start cluster
+pg_ctlcluster 11 main start
+
+# connect to DB
+su - postgres
+psql
+
+# create user (user is named accordingly to hostname to simplicity in future replication configuration)
+CREATE USER (user) WITH PASSWORD '(pass)';
+\du
+
+# create database (there is only one DB named telemetry to avoid confusion)
+CREATE DATABASE telemetry;
+\l
+
+# grant access to (user)
+GRANT ALL ON DATABASE telemetry TO (user) ;
+\l telemetry
+
+# connect to DB and create table
+# tables are named individually to keep order for replication
+# telemetry_hostname represents table with telemetry for hostname
+\c telemetry
+CREATE TABLE telemetry_host();
+\d
+\d telemetry_host
+
+# adding columns to table
+# it is importnant to set NOT NULL, because we do not want to keep DB clean and tidy
+ALTER TABLE telemetry_host ADD COLUMN timestamp TIMESTAMPTZ PRIMARY KEY;
+ALTER TABLE telemetry_host ADD COLUMN sensor CHAR(64) NOT NULL;
+ALTER TABLE telemetry_host ADD COLUMN value INTEGER NOT NULL;
+\d telemetry_host
+
+# grant access on table to (user)
+???
+
+
+
+# change DB credentials in shell script (user) and (pass)
  nano ./read_ds18x20.sh
  pi@(host):~/meter $ ./read_ds18x20.py | ./read_ds18x20.sh
      INSERT 0 1
