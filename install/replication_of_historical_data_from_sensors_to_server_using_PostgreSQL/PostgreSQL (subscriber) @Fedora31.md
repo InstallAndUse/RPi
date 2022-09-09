@@ -58,3 +58,8 @@ GRANT ALL ON TABLE telemetry_lab5rp41 TO (user2) ;
 
 # check replication
 SELECT * FROM pg_stat_replication;
+
+
+
+Books:
+- [Anton's bookshelf](https://og2k.com/books/)

@@ -85,3 +85,9 @@ iptables -L -n -v --line-numbers | grep 5432
 
 
 # reboot and retry last SELECT command, everything should work
+
+
+
+
+Books:
+- [Anton's bookshelf](https://og2k.com/books/)

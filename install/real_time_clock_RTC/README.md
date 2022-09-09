@@ -81,3 +81,13 @@ systemctl disable fake-hwclock
 
 # refs:
 # https://cdn-learn.adafruit.com/downloads/pdf/adding-a-real-time-clock-to-raspberry-pi.pdf
+
+
+
+Books:
+- [Anton's bookshelf](https://og2k.com/books/)
+
+
+
+Books:
+- [Anton's bookshelf](https://og2k.com/books/)

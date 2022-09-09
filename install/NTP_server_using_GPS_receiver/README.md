@@ -78,3 +78,8 @@ rm
 #
 # refs: https://gpsd.gitlab.io/gpsd/gpsd-time-service-howto.html#_feeding_chrony_from_gpsd
 #       http://www.unixwiz.net/techtips/raspberry-pi3-gps-time.html
+
+
+
+Books:
+- [Anton's bookshelf](https://og2k.com/books/)

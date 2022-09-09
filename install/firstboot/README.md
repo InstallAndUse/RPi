@@ -19,8 +19,12 @@ usermod -aG sudo (you)
 mkdir /home/(you)
 chown -R (you):(you) /home/(you)
 
-# update
+# update, reboot and run update one more time
+```
 apt update && apt upgrade -y
+shutdown -r now
+apt update && apt upgrade -y
+```
 
 # initial config
 raspi-config
@@ -29,3 +33,9 @@ raspi-config
 5. interfacing, P2, enable ssh
 
 # reboot
+
+
+
+
+Books:
+- [Anton's bookshelf](https://og2k.com/books/)

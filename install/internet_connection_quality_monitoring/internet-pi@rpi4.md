@@ -22,3 +22,8 @@ ansible-playbook main.yml
 sudo netstat -ntap | grep 3030
 ```
 open (host):3030
+
+
+
+Books:
+- [Anton's bookshelf](https://og2k.com/books/)

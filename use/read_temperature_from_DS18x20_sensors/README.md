@@ -119,3 +119,8 @@ ALTER TABLE telemetry_host ADD COLUMN value INTEGER NOT NULL;
       2020-06-12 10:47:03.880082+01 | 27687 | /sys/bus/w1/devices/10-000800e489b3
       2020-06-12 10:47:04.031554+01 | 28750 | /sys/bus/w1/devices/10-00080280a759
      (9 rows)
+
+
+
+Books:
+- [Anton's bookshelf](https://og2k.com/books/)
