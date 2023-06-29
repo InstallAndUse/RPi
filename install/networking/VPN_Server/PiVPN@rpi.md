@@ -5,6 +5,7 @@
 # 2022-09-07  + merged with installation logic in general /A
 # 2023-01-20  * reviewed due to reinstallation /A
 # 2023-03-12  * reinstalling, reviewing /A
+# 2023-06-23  + installing VPN Server to Omi /A
 
 # download recent Raspberry Pi OS Lite image and burn it to flash card [link]
 
@@ -12,15 +13,22 @@
 
 # configure firstboot [RPi/install_firstboot]
 
-# configure manual IP address [link] (for port forwarding from router to VPN server)
 
-# configure Dynamic DNS to ensure that VPN server is reachable, in case IP address changes [link]
+# Setup OpenVPN Server
+
+## configure manual IP address [link] (for port forwarding from router to VPN server)
+
+## configure Dynamic DNS to ensure that VPN server is reachable, in case IP address changes [link]
+
+
+# all commands executed below need to be run as root, prepend 'sudo' or
+```bash
+sudo su
+```
 
 
 # download PiVPN installer and execute
-```
-cd
-sudo su
+```bash
 apt install curl
 curl -L https://install.pivpn.io > installer.sh
 chmod +x ./installer.sh
@@ -43,7 +51,7 @@ login into local user, which is holding pivpn configuration files
 
 # VPN Clients (*.ovpn files)
 list and add VPN clients (users) "father-mother-sister-brother"
-```
+```bash
 pivpn list
 pivpn add
     Name: (client)
@@ -51,7 +59,7 @@ pivpn add
     Password: (pass)
 ```
 now new user should be in the list and opvn config generated and can be found
-```
+```bash
 pivpn list
 ls -la /home/(user)/ovpns/
 cat /home/(user)/ovpns/(client).ovpn
@@ -89,7 +97,16 @@ mkdir -p /etc/openvpn/easy-rsa/pki/
 
 
 
-# source https://docs.pivpn.io/install/
+# sources
+- https://docs.pivpn.io/install/
+- https://www.themoderncoder.com/openvpn-installation-and-debugging-raspberry-pi/
+
+
+
+
+# Setup OpenVPN Client
+
+
 
 
 
